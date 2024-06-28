@@ -1,0 +1,116 @@
+---
+import App from "./Index";
+---
+
+<header class="header-container">
+  <App client:load />
+  <div class="header-img">
+    <article class="text-container">
+      <h1
+        class="hero-title animate__animated animate__fadeInRight animate__slow">
+        GRUPO MOKA
+      </h1>
+      <div>
+        <h2 class="title">Odontología por especialistas</h2>
+        <h3 class="subtitle">Consultorios y formación profesional</h3>
+        <aside class="circles-container">
+          <div
+            class="circle animate__animated animate__heartBeat animate__delay-2s">
+          </div>
+          <div
+            class="circle animate__animated animate__heartBeat animate__delay-3s">
+          </div>
+          <div
+            class="circle animate__animated animate__heartBeat animate__delay-4s">
+          </div>
+          <div
+            class="circle animate__animated animate__heartBeat animate__delay-5s">
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</header>
+
+<style>
+  .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .header-img {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .logo-img {
+    width: 250px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-family: "Acumin";
+    font-size: 4rem;
+    font-weight: 100;
+    color: var(--Darkerblue);
+  }
+
+  .title {
+    font-family: "Acumin";
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--Darkerblue);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--Gray);
+  }
+  .subtitle {
+    text-transform: uppercase;
+    font-family: "ModernSans";
+    color: var(--Darkblue);
+    font-size: 1rem;
+  }
+  .circles-container {
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5rem;
+  }
+  .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+
+  .circle:first-child {
+    background-color: var(--Darkerblue);
+  }
+
+  .circle:nth-child(2) {
+    background-color: var(--Darkblue);
+  }
+
+  .circle:nth-child(3) {
+    background-color: var(--Mediumblue);
+  }
+
+  .circle:last-child {
+    background-color: var(--Lightblue);
+  }
+</style>

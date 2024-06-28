@@ -1,0 +1,72 @@
+---
+import Button from "../Generales/Button.astro";
+---
+
+<section class="main-container">
+  <article class="article-container">
+    <h2>Conocé nuestros cursos</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ratione.
+      Temporibus odit repellendus in ratione repudiandae praesentium.
+    </p>
+    <Button
+      title="Ver cursos"
+      href="/formacion"
+    />
+  </article>
+  <article class="article-container">
+    <h2>Conocé nuestros consultorios</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ratione.
+      Temporibus odit repellendus in ratione repudiandae praesentium.
+    </p>
+    <Button
+      title="Ver consultorios"
+      href="/consultorios"
+    />
+  </article>
+</section>
+
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 5% 3%;
+    gap: 2rem;
+    background-image: url(../../assets/images/formacion.png);
+    clip-path: polygon(0 13%, 100% 0, 100% 100%, 0% 100%);
+    background-size: cover;
+  }
+
+  .article-container {
+    display: flex;
+    width: 50%;
+    gap: 2rem;
+    padding: 2rem 3rem;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(57, 116, 186, 0.5);
+    background: rgba(0, 7, 14, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid var(--Lightblue);
+  }
+
+  .article-container h2 {
+    color: var(--Lightblue);
+  }
+
+  .article-container p {
+    color: var(--White);
+    font-family: "Acumin";
+    font-weight: 900;
+  }
+</style>

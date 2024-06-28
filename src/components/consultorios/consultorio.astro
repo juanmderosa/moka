@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import Formacion1 from "../../assets/images/formacion.png";
+---
+
+<section class="main-container">
+  <article class="image-container">
+    <aside class="clip-container">
+      <Image
+        src={Formacion1}
+        alt="Formacion"
+      />
+    </aside>
+  </article>
+  <article class="text-container">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ratione.
+      Temporibus odit repellendus in ratione repudiandae praesentium. Neque,
+      distinctio dicta facilis corrupti dolorum reiciendis iste beatae eaque
+      possimus iure expedita! Corrupti, quisquam ex fugiat illo nostrum quos sit
+      aperiam quo inventore. Sit, doloremque. Molestiae, eum. Similique eveniet
+      pariatur molestiae corrupti optio est. At, ullam? Dignissimos temporibus
+      odio itaque quae exercitationem!
+    </p>
+    <ul class="characteristics">
+      <li class="characteristic-li">Característica 1 - Poner un descripción</li>
+      <li class="characteristic-li">Característica 2 - Poner un descripción</li>
+      <li class="characteristic-li">Característica 3 - Poner un descripción</li>
+      <li class="characteristic-li">Característica 4 - Poner un descripción</li>
+      <li class="characteristic-li">Característica 5 - Poner un descripción</li>
+      <li class="characteristic-li">Característica 6 - Poner un descripción</li>
+    </ul>
+  </article>
+</section>
+
+<style>
+  /* MAIN */
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .main-container::before {
+    clip-path: polygon(0 0, 37.5% 0, 34% 81%, 100% 100%, 0 100%);
+    background-color: var(--Lightblue);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  /* RIGHT */
+  .text-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-inline: 5rem;
+    line-height: 1.5rem;
+  }
+
+  .text-container > p,
+  ul {
+    font-size: 1rem;
+    font-family: "Acumin";
+    font-weight: 900;
+    color: var(--Black);
+  }
+
+  /* LEFT */
+  .image-container {
+    width: 50%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 4rem;
+  }
+
+  .clip-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clip-container > img {
+    width: 80%;
+    height: 60%;
+    object-fit: cover;
+  }
+</style>

@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import logoMoka from "../../assets/images/LogoMoka.png";
+---
+
+<footer class="footer-container">
+  <div class="brand-container">
+    <Image
+      src={logoMoka}
+      alt="Moka Logo"
+      width={150}
+    />
+  </div>
+  <div class="footer-links-container">
+    <ul class="ul-footer">
+      <li><a href="moka/">Inicio</a></li>
+      <li><a href="moka/sobre-nosotros">Sobre nosotros</a></li>
+      <li><a href="moka/consultorios">Consultorios</a></li>
+      <li><a href="moka/formacion">Formación</a></li>
+      <li><a href="moka/contacto">Contacto</a></li>
+    </ul>
+  </div>
+  <div class="contact-container">
+    <p><span>Dirección: </span>Uruguay 1234 - Piso 2</p>
+    <p><span>Teléfono: </span>1234-5678</p>
+    <p><span>E-mail: </span>info@moka.com</p>
+  </div>
+  <div class="copyright-container">
+    <p>© 2024 MOKA - Todos los derechos reservados.</p>
+    <p>
+      Desarrollado por <a
+        href="https://juanmderosa-developer.com"
+        target="_blank"
+        >Juan Martín De Rosa</a
+      >
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    min-height: 100px;
+    padding: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Darkerblue);
+    color: white;
+    font-family: "Acumin";
+    font-weight: 900;
+  }
+
+  .brand-container,
+  .footer-links-container,
+  .copyright-container,
+  .contact-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    font-family: "Acumin";
+  }
+
+  .brand-container {
+    align-items: center;
+  }
+
+  .copyright-container > p {
+    color: var(--White);
+    font-family: "Acumin";
+  }
+
+  .contact-container > p {
+    color: white;
+    font-family: "Acumin";
+  }
+
+  a {
+    color: white;
+    font-family: "Acumin";
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .ul-footer {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+</style>

@@ -1,0 +1,57 @@
+---
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+import "../styles/global.css";
+import Footer from "../components/Generales/Footer.astro";
+import { Logo } from "../components/Generales/Logo";
+import { NavMenu } from "../components/Generales/NavMenu";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Astro description"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <script
+      src="https://kit.fontawesome.com/e5a9b29bcf.js"
+      crossorigin="anonymous"
+      is:inline
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <ViewTransitions />
+    <NavMenu client:only="react" />
+    <main class="main">
+      <slot />
+    </main>
+    <Logo client:only="react" />
+    <Footer />
+  </body>
+</html>

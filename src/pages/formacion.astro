@@ -1,0 +1,16 @@
+---
+import Hero from "../components/formacion/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import { Cursos } from "../components/formacion/Cursos";
+import Formacion2 from "../components/formacion/formacion.astro";
+import Contactanos from "../components/formacion/contactanos.astro";
+import Aulas from "../components/formacion/aulas.astro";
+---
+
+<Layout title="Moka - Formación Profesional">
+  <Hero />
+  <Formacion2 />
+  <Cursos client:only="react" />
+  <Aulas />
+  <Contactanos />
+</Layout>

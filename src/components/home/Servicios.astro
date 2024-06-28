@@ -1,0 +1,89 @@
+---
+const services = [
+  {
+    title: "Servicio 1",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+  {
+    title: "Servicio 2",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+  {
+    title: "Servicio 3",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+  {
+    title: "Servicio 4",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+  {
+    title: "Servicio 5",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+  {
+    title: "Servicio 6",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
+  },
+];
+---
+
+<section class="main-container">
+  <h2>Servicios</h2>
+  <div class="services-container">
+    {
+      services.map((service) => (
+        <article class="service-container">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 3%;
+    background-color: var(--Darkerblue);
+    gap: 2rem;
+  }
+  .services-container {
+    width: 80%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    align-content: center;
+  }
+
+  .service-container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--White);
+
+    padding: 1rem;
+  }
+  .service-container > h3 {
+    font-family: "Raleway";
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    color: var(--White);
+  }
+</style>

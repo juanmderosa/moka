@@ -1,0 +1,36 @@
+---
+const { href, title } = Astro.props;
+---
+
+<a
+  class="button"
+  href={href}>
+  {title}
+</a>
+
+<style>
+  .button {
+    min-width: 200px;
+    height: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Raleway";
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-align: center;
+    transition: all 1s;
+    background: linear-gradient(90deg, var(--Darkerblue), var(--Darkblue));
+    border-radius: 16px;
+    outline: 2px solid var(--Gray);
+    box-shadow: 0px 0px 10px 3px var(--Gray);
+  }
+
+  .button:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+    letter-spacing: 2px;
+    background: linear-gradient(270deg, var(--Darkerblue), var(--Darkblue));
+  }
+</style>

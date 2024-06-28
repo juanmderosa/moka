@@ -1,0 +1,97 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--Darkerblue);
+}
+.courses-container,
+.detail-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-inline: 5rem;
+}
+
+.detail-container {
+  align-items: center;
+  background-image: url("../assets/images/formacion.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.detail-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--Black);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.title-container {
+  line-height: 1.5rem;
+  color: var(--White);
+}
+
+.cursos-title {
+  color: var(--White);
+  margin-bottom: 1rem;
+}
+.cursos-subtitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 2ch;
+}
+.cursos-select {
+  font-weight: 100;
+}
+
+.ul-cursos {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.li-cursos {
+  background-color: var(--White);
+  color: var(--Darkerblue);
+  padding: 0.5rem;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--White);
+}
+
+.li-cursos:hover {
+  background-color: var(--Gray);
+  color: var(--White);
+}
+.selected-course-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--White);
+}
+
+.selected-course-description {
+  color: var(--White);
+  line-height: 1.5rem;
+}

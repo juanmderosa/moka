@@ -1,0 +1,62 @@
+---
+import Button from "../Generales/Button.astro";
+---
+
+<section class="main-container">
+  <article class="text-container">
+    <h2>Formación Profesional</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, ratione.
+      Temporibus odit repellendus in ratione repudiandae praesentium. Neque,
+      distinctio dicta facilis corrupti dolorum reiciendis iste beatae eaque
+      possimus iure expedita! Corrupti, quisquam ex fugiat illo nostrum quos sit
+      aperiam quo inventore. Sit, doloremque.
+    </p>
+    <Button
+      title="Ver cursos"
+      href="/formacion"
+    />
+  </article>
+</section>
+
+<style>
+  .main-container {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../../assets/images/inicio1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    color: var(--White);
+    width: 50%;
+    text-align: center;
+  }
+  h2 {
+    color: var(--White);
+    text-align: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 50%;
+    background: rgba(0, 7, 14, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid var(--Lightblue);
+    padding-block: 2rem;
+  }
+</style>
