@@ -1,8 +1,8 @@
 import { ListadoCursos } from "./ListadoCursos";
-import "../../styles/cursos.css";
 import { useState } from "react";
 import { DetalleCurso } from "./DetalleCurso";
-import { cursos } from "../../assets/cursos/cursos";
+import { cursos } from "../../assets/data/cursos";
+import "../../styles/cursos.css";
 
 export const Cursos = () => {
   const [cursoSeleccionado, setCursoSeleccionado] = useState(cursos[0]);

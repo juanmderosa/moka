@@ -1,14 +1,20 @@
 ---
-import Hero from "../components/formacion/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import { Cursos } from "../components/formacion/Cursos";
 import Formacion2 from "../components/formacion/formacion.astro";
 import Contactanos from "../components/formacion/contactanos.astro";
 import Aulas from "../components/formacion/aulas.astro";
+import HeroComponent from "../components/Generales/HeroComponent.astro";
 ---
 
 <Layout title="Moka - Formación Profesional">
-  <Hero />
+  <HeroComponent
+    heroTitle="FORMAMOS PROFESIONALES"
+    pageTitle="Formación"
+    title="Odontología por especialistas"
+    subtitle="Consultorios y formación profesional"
+    heroImage="/src/assets/images/formacion.png"
+  />
   <Formacion2 />
   <Cursos client:only="react" />
   <Aulas />

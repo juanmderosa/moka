@@ -1,0 +1,234 @@
+---
+import { Image } from "astro:assets";
+import SubtitleComponent from "./SubtitleComponent.astro";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  title: string;
+  heroTitle: string;
+  pageTitle: string;
+  subtitle: string;
+  heroImage: string;
+}
+const { heroTitle, pageTitle, title, subtitle, heroImage } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif}"
+);
+if (!images[heroImage])
+  throw new Error(
+    `"${heroImage}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<section class="hero-container">
+  <div class="hero-image-container">
+    <Image
+      src={images[heroImage]()}
+      alt="Hero"
+      class="hero-image"
+      loading={"eager"}
+    />
+  </div>
+  <div class="title-container">
+    <article class="text-container animate__animated animate__slideInRight">
+      <h1 class="hero-title">{heroTitle}</h1>
+      <SubtitleComponent
+        title={title}
+        subtitle={subtitle}
+      />
+    </article>
+  </div>
+</section>
+
+<style>
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100%;
+    margin-top: -100px;
+    background: linear-gradient(
+      to top right,
+      var(--White) 40%,
+      var(--Lightblue) 90%,
+      var(--Mediumblue)
+    );
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-container::before {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/bg/fondoHero.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: right;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-image-container {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .hero-image-container::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(/src/assets/bg/dotsdecoration.png);
+    position: absolute;
+    top: 110px;
+    right: -190px;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .hero-image {
+    width: 450px;
+    height: 400px;
+    object-fit: cover;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 50%;
+    filter: drop-shadow(2px 4px 6px var(--Gray));
+    z-index: 1;
+  }
+
+  .title-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    overflow-x: hidden;
+    z-index: 1;
+  }
+
+  .title-container::before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    background-image: url(/src/assets/bg/fondoHero.png);
+    position: absolute;
+    background-size: cover;
+    top: 50vh;
+    left: -32vw;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .hero-image {
+      max-width: 80%;
+      max-height: 90%;
+      object-fit: cover;
+    }
+    .title-container::before {
+      display: none;
+    }
+
+    .text-container {
+      transform: scale(0.9);
+      margin-top: 50px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .hero-container {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      width: 100%;
+      position: relative;
+      padding-top: 48px;
+    }
+
+    .hero-container::before {
+      background-image: url(/src/assets/bg/Mobilebackground.png);
+      background-size: contain;
+      background-position-x: -0;
+      background-position-y: 25vh;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-image-container {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 0;
+      border-radius: 0;
+    }
+    .hero-image {
+      margin-top: 120px;
+      width: 50%;
+      height: 50%;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      object-fit: cover;
+      filter: drop-shadow(2px 4px 6px var(--Gray));
+    }
+
+    .hero-image-container::before {
+      display: none;
+    }
+
+    .title-container {
+      width: 100%;
+      position: static;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      grid-row: 2 / 3;
+      margin-top: 0;
+    }
+
+    .title-container::before {
+      display: none;
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      max-width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .hero-container {
+      max-height: 50vh;
+    }
+  }
+</style>

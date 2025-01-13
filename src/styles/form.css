@@ -29,8 +29,7 @@
   padding: 1rem;
   border-radius: 12px;
   border: 1px solid var(--Mediumblue);
-  font-family: "Acumin";
-  font-weight: 900;
+  font-family: "AcuminBold", sans-serif;
 }
 .labelandinput-container > textarea {
   resize: none;
@@ -41,8 +40,7 @@
 .labelandinput-container > textarea:focus {
   outline: 2px solid var(--Darkblue);
   border: none;
-  font-family: "Acumin";
-  font-weight: 900;
+  font-family: "AcuminBold", sans-serif;
   font-size: 1rem;
 }
 
@@ -53,7 +51,7 @@
   height: 50px;
   padding: 10px 20px;
   cursor: pointer;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   text-decoration: none;
   font-size: 1.5rem;
   letter-spacing: 1.5px;
@@ -100,4 +98,18 @@
   color: red;
   padding-left: 1rem;
   margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    width: 100%;
+  }
+
+  .form-button {
+    min-width: 120px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+  }
 }

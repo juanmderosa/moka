@@ -1,11 +1,13 @@
-import logoMoka from "../../assets/images/LogoMoka.png";
-import logoMokaContsultorios from "../../assets/images/LogoMokaConsultorios.png";
-import logoMokaFormacion from "../../assets/images/LogoMokaFormacion.png";
+import logoMoka from "../../assets/images/LogoMoka.webp";
+import logoMokaContsultorios from "../../assets/images/LogoMokaConsultorios.webp";
+import logoMokaFormacion from "../../assets/images/LogoMokaFormacion.webp";
+import "../../styles/navmenu.css";
 
 export const Logo = () => {
   return (
-    <a href="moka/">
+    <a href="/">
       <img
+        className="nav-logo"
         src={
           window.location.pathname === "/consultorios"
             ? logoMokaContsultorios.src
@@ -14,14 +16,6 @@ export const Logo = () => {
             : logoMoka.src
         }
         alt="Moka Logo"
-        style={{
-          textDecoration: "none",
-          cursor: "pointer",
-          position: "fixed",
-          right: "3%",
-          top: "3%",
-          zIndex: 999,
-        }}
         width={150}
       />
     </a>

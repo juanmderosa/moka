@@ -1,10 +1,16 @@
 ---
-import Hero from "../components/contacto/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Contactocontainer from "../components/contacto/contactocontainer.astro";
+import HeroComponent from "../components/Generales/HeroComponent.astro";
 ---
 
 <Layout title="Moka - Contacto">
-  <Hero />
+  <HeroComponent
+    heroTitle="CONTACTANOS"
+    pageTitle="Contactanos"
+    title="Odontología por especialistas"
+    subtitle="Consultorios y formación profesional"
+    heroImage="/src/assets/images/sobrenosotros.png"
+  />
   <Contactocontainer />
 </Layout>

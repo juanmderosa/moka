@@ -1,6 +1,6 @@
 import type { FormValues, FormValuesError } from "../../helpers/interfaces";
 import "../../styles/form.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const Form = () => {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -76,14 +76,12 @@ export const Form = () => {
           }
         );
         if (!response.ok) {
-          // in case of malformed form data
           setFailure(true);
           setTimeout(() => {
             setFailure(false);
           }, 5000);
           throw new Error("Error al enviar el formulario");
         } else {
-          // in case of success
           setLoading(false);
           setSuccess(true);
           resetForm();
@@ -93,7 +91,6 @@ export const Form = () => {
         }
       }
     } catch (error) {
-      // in case of form-to-email server not responding
       if (error instanceof Error) {
         throw new Error("Error al enviar el formulario", error);
       }
@@ -101,11 +98,6 @@ export const Form = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    console.log("succes", success), console.log("failure", failure);
-    console.log("loading", loading);
-  }, [success, failure, loading]);
 
   return (
     <form

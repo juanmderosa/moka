@@ -11,12 +11,11 @@ const { href, title } = Astro.props;
 <style>
   .button {
     min-width: 200px;
-    height: 50px;
     padding: 10px 20px;
     cursor: pointer;
-    font-family: "Raleway";
+    font-family: "Raleway", sans-serif;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: 1.5px;
     color: #ffffff;
     text-align: center;
@@ -32,5 +31,15 @@ const { href, title } = Astro.props;
     transform: scale(1.1);
     letter-spacing: 2px;
     background: linear-gradient(270deg, var(--Darkerblue), var(--Darkblue));
+  }
+
+  @media screen and (max-width: 768px) {
+    .button {
+      min-width: 120px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      letter-spacing: 1.2px;
+    }
   }
 </style>

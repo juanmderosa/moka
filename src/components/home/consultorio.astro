@@ -1,10 +1,16 @@
 ---
 import Button from "../Generales/Button.astro";
+import consultorioImage from "../../assets/images/consultorios.png";
+import { Image } from "astro:assets";
 ---
 
 <section class="main-container">
   <article class="image-container">
-    <aside class="clip-container"></aside>
+    <Image
+      src={consultorioImage}
+      alt="consultorios"
+      class="section-image clip-container"
+    />
   </article>
   <article class="text-container">
     <h2>Consultorios</h2>
@@ -33,19 +39,16 @@ import Button from "../Generales/Button.astro";
 </section>
 
 <style>
-  /* MAIN */
   .main-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     min-height: 100vh;
     width: 100%;
+    gap: 2rem;
   }
-  /* RIGHT */
   .text-container {
-    width: 50%;
-    height: 100%;
+    grid-column: 2/3;
+    grid-row: 1/2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,22 +58,66 @@ import Button from "../Generales/Button.astro";
     line-height: 1.5rem;
   }
 
-  /* LEFT */
   .image-container {
-    width: 50%;
-    height: 100dvh;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
-  .clip-container {
+  .section-image {
     width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
-    background: url("../../assets/images/consultorios.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: left;
+    max-height: 100vh;
+  }
+  .clip-container {
+    clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .image-container {
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    .clip-container {
+      clip-path: none;
+      border-radius: 12px;
+      box-shadow: 0px 0px 15px 1px var(--Gray);
+    }
+
+    .text-container {
+      gap: 2rem;
+      padding: 2rem;
+      line-height: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .image-container {
+      width: 100%;
+    }
+    .clip-container {
+      max-height: 50vh;
+    }
+
+    .text-container {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .main-container {
+      min-height: auto;
+    }
   }
 </style>

@@ -1,29 +1,46 @@
 ---
 import Button from "../Generales/Button.astro";
+import { Image } from "astro:assets";
+import instagramIcon from "../../assets/icons/instagram3.svg";
+import phoneIcon from "../../assets/icons/phone.svg";
+import mailIcon from "../../assets/icons/mail.svg";
+import locationIcon2 from "../../assets/icons/location2.svg";
 ---
 
 <section class="main-container">
-  <article class="text-container">
-    <h2 class="hero-title">¿Tenés alguna consulta?</h2>
+  <article class="info-container">
+    <h2>¿Tenés alguna consulta?</h2>
     <p class="description">
       No dudes en ponerte en contacto con nuestro equipo.
     </p>
     <ul>
       <li>
         <span class="icon-container">
-          <i class="fa-solid fa-location-dot"></i>
+          <Image
+            src={locationIcon2}
+            alt="location icon"
+            class="icon-contacto"
+          />
         </span>
         <p>Uruguay 1234 - Piso 2</p>
       </li>
       <li>
         <span class="icon-container">
-          <i class="fa-solid fa-phone"></i>
+          <Image
+            src={phoneIcon}
+            alt="phone icon"
+            class="icon-contacto"
+          />
         </span>
         <p>1234-5678</p>
       </li>
       <li>
-        <span class="icon-container"
-          ><i class="fa-solid fa-envelope"></i>
+        <span class="icon-container">
+          <Image
+            src={mailIcon}
+            alt="mail icon"
+            class="icon-contacto"
+          />
         </span>
         <p>info@moka.com</p>
       </li>
@@ -31,9 +48,12 @@ import Button from "../Generales/Button.astro";
         <a
           href="https://www.instagram.com"
           target="_blank">
-          <span class="icon-container"
-            ><i class="fa-brands
-              fa-instagram"></i>
+          <span class="icon-container">
+            <Image
+              src={instagramIcon}
+              alt="instagram icon"
+              class="icon-contacto"
+            />
           </span>
           Seguinos en Instagram
         </a>
@@ -49,6 +69,7 @@ import Button from "../Generales/Button.astro";
   <article class="map-container">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.1735432963696!2d-58.386626199999995!3d-34.59977289999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac773f7534b%3A0x5fe56ccc63984503!2sUruguay%20775%2C%20C1015%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1718801808202!5m2!1ses!2sar"
+      title="mapa de contacto"
       width="100%"
       height="100%"
       style="border:0;"
@@ -57,93 +78,142 @@ import Button from "../Generales/Button.astro";
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
   </article>
+</section>
 
-  <style>
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 3%;
+  }
+
+  .info-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-inline: 5rem;
+    line-height: 1.5rem;
+  }
+  .map-container {
+    width: 50%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+  }
+
+  li,
+  li > a {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    background-color: var(--Mediumblue);
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px 1px var(--Gray);
+    transition: all 0.5s ease-in-out;
+  }
+  .icon-contacto {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+  }
+
+  .info-container > h2 {
+    line-height: 2.5rem;
+  }
+
+  .description {
+    text-transform: uppercase;
+    font-family: "ModernSans", sans-serif;
+    color: var(--Darkblue);
+    font-size: 1rem;
+  }
+
+  p,
+  a {
+    text-decoration: none;
+    color: var(--Black);
+  }
+
+  @media screen and (max-width: 900px) {
     .main-container {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      width: 100%;
+      flex-direction: column;
     }
 
-    .text-container {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 2rem;
-      padding-inline: 5rem;
+    .info-container {
+      width: 100%;
+      padding-block: 3rem;
+      padding-inline: 2rem;
       line-height: 1.5rem;
     }
     .map-container {
-      width: 50%;
-      height: 100dvh;
+      width: 100%;
+      height: 50dvh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 3%;
+      padding-inline: 2rem;
     }
 
-    li,
     li > a {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 1rem;
       font-size: 1rem;
     }
+  }
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+  @media screen and (max-width: 768px) {
+    .info-container > h2 {
+      text-align: center;
+    }
+
+    .description {
+      text-align: center;
     }
 
     .icon-container {
-      border-radius: 100%;
-      background-color: var(--Mediumblue);
-      padding: 0.5rem;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
-      color: white;
+      width: 35px;
+      height: 35px;
     }
 
-    .subtitle {
-      font-family: "Raleway";
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      color: var(--Darkerblue);
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--Gray);
+    li > a {
+      font-size: 0.8rem;
     }
-    .description {
-      text-transform: uppercase;
-      font-family: "ModernSans";
-      color: var(--Darkblue);
-      font-size: 1rem;
-    }
+  }
 
-    p,
-    a {
-      font-family: "Acumin";
-      font-weight: 900;
-      text-decoration: none;
-      color: var(--Black);
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .main-container {
+      min-height: auto;
     }
-
-    a {
-      margin: 0;
-      padding: 0;
+    .map-container {
+      height: 50vh;
     }
-  </style>
-</section>
+  }
+</style>

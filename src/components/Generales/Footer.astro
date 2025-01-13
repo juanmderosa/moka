@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logoMoka from "../../assets/images/LogoMoka.png";
+import logoMoka from "../../assets/images/LogoMoka.webp";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer-container">
@@ -13,11 +15,11 @@ import logoMoka from "../../assets/images/LogoMoka.png";
   </div>
   <div class="footer-links-container">
     <ul class="ul-footer">
-      <li><a href="moka/">Inicio</a></li>
-      <li><a href="moka/sobre-nosotros">Sobre nosotros</a></li>
-      <li><a href="moka/consultorios">Consultorios</a></li>
-      <li><a href="moka/formacion">Formación</a></li>
-      <li><a href="moka/contacto">Contacto</a></li>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+      <li><a href="/consultorios">Consultorios</a></li>
+      <li><a href="/formacion">Formación</a></li>
+      <li><a href="/contacto">Contacto</a></li>
     </ul>
   </div>
   <div class="contact-container">
@@ -26,7 +28,7 @@ import logoMoka from "../../assets/images/LogoMoka.png";
     <p><span>E-mail: </span>info@moka.com</p>
   </div>
   <div class="copyright-container">
-    <p>© 2024 MOKA - Todos los derechos reservados.</p>
+    <p>© {year} MOKA - Todos los derechos reservados.</p>
     <p>
       Desarrollado por <a
         href="https://juanmderosa-developer.com"
@@ -39,6 +41,7 @@ import logoMoka from "../../assets/images/LogoMoka.png";
 
 <style>
   footer {
+    grid-row: 3/4;
     width: 100%;
     min-height: 100px;
     padding: 5%;
@@ -46,41 +49,31 @@ import logoMoka from "../../assets/images/LogoMoka.png";
     justify-content: space-between;
     align-items: center;
     background-color: var(--Darkerblue);
-    color: white;
-    font-family: "Acumin";
-    font-weight: 900;
+    color: var(--White);
+    font-family: "AcuminBold", sans-serif;
   }
-
   .brand-container,
   .footer-links-container,
   .copyright-container,
   .contact-container {
-    width: 25%;
+    max-width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
     gap: 2rem;
-    font-family: "Acumin";
-  }
-
-  .brand-container {
-    align-items: center;
+    font-family: "Acumin", sans-serif;
   }
 
   .copyright-container > p {
     color: var(--White);
-    font-family: "Acumin";
   }
 
   .contact-container > p {
     color: white;
-    font-family: "Acumin";
   }
 
   a {
     color: white;
-    font-family: "Acumin";
     text-decoration: none;
   }
 
@@ -93,7 +86,52 @@ import logoMoka from "../../assets/images/LogoMoka.png";
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
     gap: 1rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    footer {
+      padding: 3%;
+    }
+    .ul-footer > li > a,
+    .contact-container > p,
+    .copyright-container > p {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .ul-footer {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      gap: 2rem;
+      padding-block: 50px;
+    }
+
+    .ul-footer > li > a,
+    .contact-container > p,
+    .copyright-container > p {
+      font-size: 1rem;
+    }
+
+    .ul-footer > li > a {
+      text-decoration: underline;
+    }
+
+    .brand-container,
+    .footer-links-container,
+    .copyright-container,
+    .contact-container {
+      max-width: 100%;
+    }
+
+    .contact-container,
+    .copyright-container {
+      gap: 1rem;
+    }
   }
 </style>

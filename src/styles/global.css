@@ -2,34 +2,49 @@
   font-family: "Acumin";
   src: url("/fonts/Acumin-Variable-Concept.ttf");
   font-weight: 100;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "AcuminBold";
+  src: url("/fonts/Acumin-Variable-Concept.ttf");
+  font-weight: 200;
+  font-display: block;
 }
 
 @font-face {
   font-family: "ModernSans";
   src: url("/fonts/ModernSans-Light.otf");
   font-weight: 300;
+  font-display: auto;
 }
 
 @font-face {
   font-family: "MyriadPro";
   src: url("/fonts/MyriadPro-Regular.ttf");
   font-weight: 400;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Raleway";
   src: url("/fonts/Raleway-Medium.ttf");
   font-weight: 500;
+  font-display: block;
 }
 
 :root {
-  --Darkerblue: #3974ba;
-  --Darkblue: #5fa7dc;
-  --Mediumblue: #8ac1ea;
+  --Darkerblue: #3a4bba;
+  --Darkblue: #3a74ba;
+  --Mediumblue: #3a74ba;
   --Lightblue: #a2c7ea;
+  --brandBlue1: #3974ba;
+  --brandBlue2: #5fa7dc;
+  --brandBlue3: #8ac1ea;
+  --brandBlue4: #a2c7ea;
   --White: #ffffff;
   --Gray: #808080;
-  --Black: #0f0f0f;
+  --Black: #30353b;
 }
 
 * {
@@ -44,32 +59,21 @@ html {
   box-sizing: border-box;
 }
 
-.main {
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 body {
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   position: relative;
 }
 
 h2 {
   font-size: 2.5rem;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   color: var(--Darkerblue);
 }
 
 label {
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
 }
 
@@ -77,11 +81,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
-  font-family: "Acumin";
+  font-family: "Acumin", sans-serif;
   font-size: 4rem;
   font-weight: 100;
   color: var(--Darkerblue);
@@ -91,14 +95,142 @@ h1 {
 p,
 li {
   font-size: 1rem;
-  font-family: "Acumin";
-  font-weight: 900;
+  font-family: "AcuminBold", sans-serif;
   color: var(--Black);
+  padding: 0;
+  margin: 0;
 }
 
 li {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-weight: 900;
+}
+
+/* HERO */
+.hero-title {
+  font-family: "Acumin", sans-serif;
+  font-size: 4rem;
+  font-weight: 100;
+  color: var(--brandBlue1);
+  line-height: 4rem;
+  max-width: 14ch;
+  text-align: center;
+}
+
+.title {
+  font-family: "Acumin", sans-serif;
+  font-size: 1.5rem;
+  color: var(--Darkerblue);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--Gray);
+  text-align: center;
+  color: var(--brandBlue1);
+  letter-spacing: 0.2em;
+}
+.subtitle {
+  text-transform: uppercase;
+  font-family: "ModernSans", sans-serif;
+  color: var(--brandBlue2);
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+.circles-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5rem;
+}
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.circle:first-child {
+  background-color: var(--brandBlue1);
+}
+
+.circle:nth-child(2) {
+  background-color: var(--brandBlue2);
+}
+
+.circle:nth-child(3) {
+  background-color: var(--brandBlue3);
+}
+
+.circle:last-child {
+  background-color: var(--brandBlue4);
+}
+
+@media screen and (max-width: 1024px) {
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  label {
+    font-size: 0.8rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p,
+  li {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .circles-container {
+    gap: 15%;
+    justify-content: space-between;
+  }
 }

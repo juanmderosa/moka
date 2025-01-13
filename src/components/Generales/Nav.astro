@@ -1,0 +1,16 @@
+---
+import Header from "./Header";
+---
+
+<header class="nav-container">
+  <Header client:only="react" />
+</header>
+
+<style>
+  .nav-container {
+    grid-row: 1/2;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+</style>

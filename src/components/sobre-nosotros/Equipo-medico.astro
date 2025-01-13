@@ -4,6 +4,7 @@ import gabriel from "../../assets/images/images.jpg";
 import gonzalo from "../../assets/images/medium-shot-doctor-wearing-coat.jpg";
 import sofia from "../../assets/images/female-doctor-hospital-with-stethoscope.jpg";
 import daniela from "../../assets/images/front-view-female-researcher-lab-coat.jpg";
+import linkedinLogo from "../../assets/icons/linkedin.svg";
 
 const doctors = [
   {
@@ -11,24 +12,36 @@ const doctors = [
     name: "Gabriel",
     lastname: "Mouriño",
     color: "#3974ba",
+    linkedin: "https://www.linkedin.com/in/juanmderosa/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod aliquet quam ac pellentesque. Suspendisse urna urna, condimentum non ornare eget, condimentum posuere dui. Suspendisse pretium dictum leo quis blandit.",
   },
   {
     img: gonzalo,
     name: "Gonzalo",
     lastname: "Oviedo",
     color: "#5fa7dc",
+    linkedin: "https://www.linkedin.com/in/juanmderosa/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod aliquet quam ac pellentesque. Suspendisse urna urna, condimentum non ornare eget, condimentum posuere dui. Suspendisse pretium dictum leo quis blandit.",
   },
   {
     img: sofia,
     name: "Sofía",
     lastname: "Kysilka",
     color: "#8ac1ea",
+    linkedin: "https://www.linkedin.com/in/juanmderosa/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod aliquet quam ac pellentesque. Suspendisse urna urna, condimentum non ornare eget, condimentum posuere dui. Suspendisse pretium dictum leo quis blandit.",
   },
   {
     img: daniela,
     name: "Daniela",
     lastname: "Anastasio",
     color: "#a2c7ea",
+    linkedin: "https://www.linkedin.com/in/juanmderosa/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod aliquet quam ac pellentesque. Suspendisse urna urna, condimentum non ornare eget, condimentum posuere dui. Suspendisse pretium dictum leo quis blandit.",
   },
 ];
 ---
@@ -44,7 +57,10 @@ const doctors = [
               <Image
                 src={doctor.img}
                 class="doctor-img"
+                width={100}
+                height={100}
                 alt={`${doctor.name} ${doctor.lastname}`}
+                loading={"eager"}
               />
             </div>
             <p class="doctor-name">
@@ -55,6 +71,21 @@ const doctors = [
               class="circle"
               style={`background-color: ${doctor.color}`}
             />
+
+            <p class="doctor-description">{doctor.description}</p>
+            <a
+              class="logo-container"
+              href={doctor.linkedin}
+              target="_blank">
+              <Image
+                src={linkedinLogo}
+                class="linkedin-logo"
+                alt={"Linkedin"}
+                width={30}
+                height={30}
+                loading={"eager"}
+              />
+            </a>
           </div>
         </>
       ))
@@ -63,46 +94,32 @@ const doctors = [
 </section>
 
 <style>
-  /* MAIN */
   .main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     position: relative;
     z-index: 1;
+    padding: 3%;
   }
 
-  .main-container::before {
-    content: "";
-    background-color: var(--Darkerblue);
-    position: absolute;
-    top: 0;
-    left: 0;
-    clip-path: polygon(0 0, 100% 19%, 100% 0);
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
   h2 {
     margin-bottom: 5rem;
-    font-size: 2.5rem;
-    font-family: "Raleway";
-    color: var(--Darkerblue);
   }
 
   .doctors-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
     width: 100%;
   }
   .doctor-container {
-    width: 25%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -115,9 +132,9 @@ const doctors = [
   }
   .doctor-img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+
     border-radius: 100%;
+    box-shadow: 0px 0px 15px 1px var(--Gray);
   }
 
   .circle {
@@ -127,12 +144,64 @@ const doctors = [
   }
 
   .doctor-name {
-    font-family: "ModernSans";
-    color: var(--Darkblue);
+    font-family: "ModernSans", sans-serif;
+    color: var(--brandBlue2);
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
   }
   .doctor-lastname {
     text-transform: uppercase;
-    font-family: "MyriadPro";
-    color: var(--Darkerblue);
+    font-family: "MyriadPro", sans-serif;
+    color: var(--brandBlue1);
+  }
+
+  .doctor-description {
+    text-align: center;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    background-color: var(--Darkerblue);
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px 1px var(--Gray);
+    transition: all 0.5s ease-in-out;
+  }
+  .linkedin-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .logo-container:hover {
+    padding: 0.7rem;
+  }
+
+  @media (max-width: 900px) {
+    .main-container {
+      padding-block: 10%;
+      padding-inline: 2rem;
+    }
+    .doctors-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .doctors-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .main-container {
+      min-height: auto;
+    }
   }
 </style>

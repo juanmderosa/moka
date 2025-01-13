@@ -9,6 +9,7 @@ import Formacion1 from "../../assets/images/formacion.png";
       <Image
         src={Formacion1}
         alt="Formacion"
+        class="img-formacion"
       />
     </aside>
   </article>
@@ -57,8 +58,6 @@ import Formacion1 from "../../assets/images/formacion.png";
     height: 100%;
     z-index: -1;
   }
-
-  /* RIGHT */
   .text-container {
     width: 50%;
     height: 100%;
@@ -72,11 +71,8 @@ import Formacion1 from "../../assets/images/formacion.png";
   }
 
   .text-container > p,
-  ul {
-    font-size: 1rem;
-    font-family: "Acumin";
-    font-weight: 900;
-    color: var(--Black);
+  ul > li {
+    color: var(--White);
   }
 
   /* LEFT */
@@ -98,11 +94,38 @@ import Formacion1 from "../../assets/images/formacion.png";
     align-items: center;
   }
 
-  .clip-container > img {
+  .img-formacion {
     width: 80%;
     height: 60%;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0px 0px 15px 1px var(--Gray);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .main-container::before {
+      display: none;
+    }
+    .main-container {
+      height: auto;
+      min-height: 50vh;
+      flex-direction: column;
+    }
+
+    .image-container {
+      display: none;
+    }
+    .text-container {
+      width: 100%;
+      height: 100%;
+      margin-top: 0;
+      padding: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .main-container {
+      min-height: auto;
+    }
   }
 </style>

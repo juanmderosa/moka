@@ -1,12 +1,13 @@
 import "../../styles/cursos.css";
 
 interface ListadoCursosProps {
-  cursos: { id: number; title: string; detalle: string }[];
+  cursos: { id: number; title: string; detalle: string; programa: string }[];
   setCursoSeleccionado: React.Dispatch<
     React.SetStateAction<{
       id: number;
       title: string;
       detalle: string;
+      programa: string;
     }>
   >;
 }

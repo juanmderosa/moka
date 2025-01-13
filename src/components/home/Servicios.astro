@@ -1,46 +1,15 @@
 ---
-const services = [
-  {
-    title: "Servicio 1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-  {
-    title: "Servicio 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-  {
-    title: "Servicio 3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-  {
-    title: "Servicio 4",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-  {
-    title: "Servicio 5",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-  {
-    title: "Servicio 6",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod mi sed massa aliquam, at pretium elit congue. Phasellus eu.",
-  },
-];
+import { services } from "../../assets/data/servicios";
 ---
 
 <section class="main-container">
-  <h2>Servicios</h2>
+  <h2 class="services-title">Servicios</h2>
   <div class="services-container">
     {
       services.map((service) => (
         <article class="service-container">
           <h3>{service.title}</h3>
-          <p>{service.description}</p>
+          <p class="service-description">{service.description}</p>
         </article>
       ))
     }
@@ -60,12 +29,11 @@ const services = [
     gap: 2rem;
   }
   .services-container {
-    width: 80%;
-    height: 70%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
+    gap: 3rem;
     align-content: center;
+    padding: 3%;
   }
 
   .service-container {
@@ -75,15 +43,46 @@ const services = [
     justify-content: center;
     align-items: center;
     color: var(--White);
-
-    padding: 1rem;
+    border-radius: 50px;
+    background: #3a4bba;
+    box-shadow:
+      20px 20px 60px #31409e,
+      -20px -20px 60px #4356d6;
+    padding: 2rem;
+    text-align: center;
   }
   .service-container > h3 {
-    font-family: "Raleway";
+    font-family: "Raleway", sans-serif;
     font-size: 1.5rem;
   }
 
-  h2 {
+  .services-title {
     color: var(--White);
+  }
+
+  .service-description {
+    color: var(--White);
+  }
+
+  @media (max-width: 900px) {
+    .main-container {
+      padding-block: 10%;
+    }
+
+    .services-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .services-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-aspect-ratio: 1/1) {
+    .main-container {
+      min-height: auto;
+    }
   }
 </style>
